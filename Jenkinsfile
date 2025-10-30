@@ -17,7 +17,7 @@ pipeline {
 
         stage('2. SonarQube Analysis') {
             environment {
-                SONAR_SCANNER_HOME = tool 'SonarScanner'
+                SONAR_SCANNER_HOME = tool 'SonarScanner-5.0'
             }
             steps {
                 echo 'Running SonarQube analysis...'
