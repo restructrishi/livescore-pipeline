@@ -27,7 +27,7 @@ pipeline {
                     -Dsonar.projectKey=livescore-project \
                     -Dsonar.sources=frontend \
                     -Dsonar.inclusions=frontend/app.js \
-                    -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.host.url=http://172.25.193.219:9000/ \
                     -Dsonar.login=admin \
                     -Dsonar.password=Admin@123
                     ''' 
