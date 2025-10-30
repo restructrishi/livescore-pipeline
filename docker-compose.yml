@@ -1,7 +1,7 @@
 services:
   frontend-web:
     build: ./frontend
-    image: ${DOCKERHUB_USERNAME}/livescore-frontend:latest
+    image: rishingm/livescore-frontend:latest
     ports:
       - "8888:80"
     depends_on:
@@ -9,6 +9,6 @@ services:
 
   backend-api:
     build: ./backend
-    image: ${DOCKERHUB_USERNAME}/livescore-backend:latest
+    image: rishingm/livescore-backend:latest
     expose:
       - "8000"   # Make backend port visible to frontend within Docker network
