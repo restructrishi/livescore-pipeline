@@ -1,16 +1,14 @@
 version: '3.7'
 
 services:
-  # The Frontend Service
   frontend-web:
     build: ./frontend
     image: ${DOCKERHUB_USERNAME}/livescore-frontend:latest
     ports:
-      - "8888:80" # <-- THIS IS THE CHANGE
+      - "8888:80"
     depends_on:
       - backend-api
 
-  # The Backend API Service
   backend-api:
     build: ./backend
     image: ${DOCKERHUB_USERNAME}/livescore-backend:latest
