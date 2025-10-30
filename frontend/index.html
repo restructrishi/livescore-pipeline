@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Score</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Live Cricket Score</h1>
+    <div id="scoreboard">
+        <div class="header">
+            <span id="match-status">Loading...</span>
+        </div>
+        <div class="teams">
+            <div class="team">
+                <span class="team-name" id="team-a"></span>
+                <span class="team-score" id="team-a-score"></span>
+                <span class="team-overs" id="team-a-overs"></span>
+            </div>
+            <div class="vs">vs</div>
+            <div class="team">
+                <span class="team-name" id="team-b"></span>
+                <span class="team-score" id="team-b-score"></span>
+                <span class="team-overs" id="team-b-overs"></span>
+            </div>
+        </div>
+        <div class="update">
+            <p id="update-text"></p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+h1 {
+    color: #333;
+}
+#scoreboard {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 400px;
+    overflow: hidden;
+}
+.header {
+    background-color: #c00;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.teams {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    align-items: center;
+}
+.team {
+    text-align: center;
+}
+.team-name {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+}
+.team-score {
+    font-size: 20px;
+    color: #111;
+    display: block;
+    margin-top: 5px;
+}
+.team-overs {
+    font-size: 14px;
+    color: #555;
+    display: block;
+}
+.vs {
+    font-size: 20px;
+    font-weight: bold;
+    color: #777;
+}
+.update {
+    background-color: #f9f9f9;
+    padding: 15px;
+    text-align: center;
+    font-style: italic;
+    color: #444;
+    border-top: 1px solid #eee;
+}
