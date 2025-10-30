@@ -1,8 +1,9 @@
+version: '3.7'
+
 services:
   frontend-web:
     build: ./frontend
-    image: livescore-frontend:latest
-    container_name: livescore-pipeline-project-frontend-web-1
+    image: ${DOCKERHUB_USERNAME}/livescore-frontend:latest
     ports:
       - "8888:80"
     depends_on:
@@ -10,7 +11,4 @@ services:
 
   backend-api:
     build: ./backend
-    image: livescore-backend:latest
-    container_name: livescore-pipeline-project-backend-api-1
-    ports:
-      - "5000:5000"
+    image: ${DOCKERHUB_USERNAME}/livescore-backend:latest
