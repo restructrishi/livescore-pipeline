@@ -1,16 +1,14 @@
 version: '3.7'
 
 services:
-  # The Frontend Service
   frontend-web:
     build: ./frontend
     image: ${DOCKERHUB_USERNAME}/livescore-frontend:latest
     ports:
-      - "80:80" # Map host port 80 to container port 80
+      - "8090:80" # use 8090 on host → 80 inside container
     depends_on:
       - backend-api
 
-  # The Backend API Service
   backend-api:
     build: ./backend
     image: ${DOCKERHUB_USERNAME}/livescore-backend:latest
