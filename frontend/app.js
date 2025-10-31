@@ -12,6 +12,7 @@ async function fetchScore() {
         }
 
         const data = await response.json();
+        console.log("Data from Cricbuzz:", data); // <-- ADDED THIS LINE
 
         document.getElementById('match-status').innerText = data.status;
         document.getElementById('team-a').innerText = data.team_a;
