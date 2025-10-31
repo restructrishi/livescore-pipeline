@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function fetchScore() {
     try {
         // This will hit /api/scores.json → Nginx → backend-api:8000/scores.json
-        const response = await fetch('http://localhost:8000/live-score');
+        const response = await fetch('/api/live-score');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
