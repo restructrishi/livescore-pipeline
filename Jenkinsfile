@@ -64,18 +64,23 @@ pipeline {
         }
 
         stage('6. Deploy Locally') {
-            steps {
-                echo "Deploying application to local machine..."
-                // Set the username var, pull new images, and restart
-                sh """
-                export DOCKERHUB_USERNAME=${DOCKERHUB_USER}
-                docker-compose pull
-                docker-compose down
-                docker-compose up -d
-                echo 'Deployment complete!'
-                """
-            }
+    steps {
+        echo "Deploying application to local machine..."
+        // Use withCredentials to safely load the API key
+        withCredentials([string(credentialsId: 'rapidapi-key', variable: 'API_KEY_VAR')]) {
+            sh """
+            # Inject all environment variables for docker-compose
+            export DOCKERHUB_USERNAME=${DOCKERHUB_USER}
+            export RAPIDAPI_KEY=${API_KEY_VAR} 
+            
+            # Use --build to force a rebuild of our new backend code
+            docker-compose up -d --build --force-recreate 
+            
+            echo 'Deployment complete!'
+            """
         }
+    }
+}
     }
 
     post {
