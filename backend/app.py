@@ -1,43 +1,36 @@
 from flask import Flask, jsonify
 import requests
-import os
+import os 
 
 app = Flask(__name__)
 
 @app.route('/live-score')
 def get_live_score():
-    #
-    # --- THIS IS THE ONLY LINE I CHANGED ---
-    #
-    url = "https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/40381/hscard "
-    #
-    # --------------------------------------
-    #
+    
+    # This is the correct URL from your testing
+    url = "https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/40381/hscard"
 
     # Get the key securely from the environment
     api_key = os.environ.get('RAPIDAPI_KEY')
 
     # Add a check in case the key is missing
     if not api_key:
+        # This will be returned if you forget the -e flag in docker run
         return jsonify({"error": "API key is missing"}), 500
 
     headers = {
-        "x-rapidapi-key": "c6e65a5652msh8188f4a32842d52p14c053jsna7995ae6124f",
+        "x-rapidapi-key": api_key, 
         "x-rapidapi-host": "cricbuzz-cricket.p.rapidapi.com"
     }
 
-    # You might need to add params here if the API requires them
-    # querystring = {"live": "true"}
-    # response = requests.get(url, headers=headers, params=querystring)
-    
     response = requests.get(url, headers=headers)
-
+    
+    # If the API call is successful, send the data
     if response.status_code == 200:
         data = response.json()
         return jsonify(data)
     else:
-        # This is what's happening now:
-        # The API returns a 403, so your code returns this 500 error.
+        # If the API call fails, send an error
         return jsonify({"error": "Failed to fetch live score", "api_status_code": response.status_code}), 500
 
 
