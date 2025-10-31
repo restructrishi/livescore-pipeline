@@ -7,8 +7,9 @@ services:
     depends_on:
       - backend-api
 
+  # The Backend API Service
   backend-api:
     build: ./backend
-    image: rishingm/livescore-backend:latest
-    expose:
-      - "8000"   # Make backend port visible to frontend within Docker network
+    image: ${DOCKERHUB_USERNAME}/livescore-backend:latest
+    environment:
+      - RAPIDAPI_KEY=${RAPIDAPI_KEY} # Pass the key from Jenkins into the container
