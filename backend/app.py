@@ -9,7 +9,7 @@ def get_live_score():
     #
     # --- THIS IS THE ONLY LINE I CHANGED ---
     #
-    url = "https://cricbuzz-cricket.p.rapidapi.com/matches/live"
+    url = "https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/40381/hscard "
     #
     # --------------------------------------
     #
@@ -22,7 +22,7 @@ def get_live_score():
         return jsonify({"error": "API key is missing"}), 500
 
     headers = {
-        "x-rapidapi-key": api_key,
+        "x-rapidapi-key": "c6e65a5652msh8188f4a32842d52p14c053jsna7995ae6124f",
         "x-rapidapi-host": "cricbuzz-cricket.p.rapidapi.com"
     }
 
